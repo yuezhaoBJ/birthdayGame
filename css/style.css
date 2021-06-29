@@ -29,6 +29,7 @@ body {
 }
 body.game {
   background: url("../bg/dw_bg.jpg");
+  background-size: cover;
 }
 
 .btn {
