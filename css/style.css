@@ -20,7 +20,7 @@ body {
 }
 
 body {
-  margin: 0 auto;
+  margin: 0 auto !important;
   max-width: 480px;
   background-size: cover;
   overflow: hidden;
