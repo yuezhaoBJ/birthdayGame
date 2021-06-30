@@ -273,6 +273,7 @@ $gray: #9b9b9b;
 }
 
 .form__field:focus {
+
     ~.form__label {
         position: absolute;
         top: 0;
@@ -283,6 +284,9 @@ $gray: #9b9b9b;
         font-weight: 700;
     }
 
+    border-left: none;
+    border-right: none;
+    border-top: none;
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
