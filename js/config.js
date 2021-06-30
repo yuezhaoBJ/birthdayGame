@@ -9,10 +9,10 @@ var config = (function(){
     var time = 0;
 
     var imgUrl = "./img/";
-    var imgExtension = ".png";
+    var imgExtension = ".jpg";
     var imgByName = function (name) {
         var src = imgUrl + name + imgExtension;
-        return `<img draggable="false" src="${src}"></img>`;
+        return `<img class="img-circle" draggable="false" src="${src}"></img>`;
     }
 
     var itemDirectionHTML = ` <div class="grid-item-direction">

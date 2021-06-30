@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>六月生日故事会</title>
+	<title>六月故事会</title>
 	<style>
 		* {
 			margin: 0;
@@ -129,7 +129,7 @@
 					tX += desX * 0.1;
 					tY += desY * 0.1;
 
-					obox.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + tX + "deg)";
+					obox.style.transform = "rotateY(" + tX + "deg)";
 					sX = nX;
 					sY = nY;
 				}
@@ -140,7 +140,7 @@
 						desY *= 0.95;
 						tX += desX * 0.1;
 						tY += desY * 0.1;
-						obox.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + tX + "deg)";
+						obox.style.transform = "rotateY(" + tX + "deg)";
 						if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
 							clearInterval(obox.timer);
 						}
@@ -157,8 +157,9 @@
 				} else {
 					index += 30;
 				}
-				(index < (-1050) && (index = (-1050)));
+				(index < (-600) && (index = (-600)));
 				document.body.style.perspective = 1000 + index + "px";
+				console.log(index);
 			})
 			function mousewheel(obj, fn) {
 				document.onmousewheel === null ? obj.onmousewheel = fn : addEvent(obj, "DOMMouseScroll", fn)
