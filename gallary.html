@@ -114,15 +114,18 @@
 				tX = 0,
 				tY = 10,
 				index = 0;//滚轮初始值
-			document.ontouchstart = function (e) {
+			document.addEventListener('touchstart', function (e) {
+
 				clearInterval(obox.timer);
 				e = e || window.event;
-				var sX = e.clientX,
-					sY = e.clientY;
-				this.ontouchmove = function (e) {
+				var sX = e.changedTouches[0].clientX,
+					sY = e.changedTouches[0].clientY;
+				document.addEventListener('touchmove', function (e) {
+
 					e = e || window.event;
-					var nX = e.clientX,
-						nY = e.clientY;
+					// e.preventDefault();
+					var nX = e.changedTouches[0].clientX,
+						nY = e.changedTouches[0].clientY;
 					// 当前点的坐标和前一点的坐标差值
 					desX = nX - sX;
 					desY = nY - sY;
@@ -132,8 +135,9 @@
 					obox.style.transform = "rotateY(" + tX + "deg)";
 					sX = nX;
 					sY = nY;
-				}
-				this.ontouchend = function () {
+				}, { passive: false });
+
+				document.addEventListener('touchend', function () {
 					this.ontouchmove = this.ontouchend = null;
 					obox.timer = setInterval(function () {
 						desX *= 0.95;
@@ -145,9 +149,10 @@
 							clearInterval(obox.timer);
 						}
 					}, 13);
-				}
+				}, { passive: false });
+
 				return false;
-			}
+			}, { passive: false });
 			//滚轮放大缩小
 			mousewheel(document, function (e) {
 				e = e || window.event;
@@ -157,9 +162,8 @@
 				} else {
 					index += 30;
 				}
-				(index < (-600) && (index = (-600)));
+				(index < (-500) && (index = (-500)));
 				document.body.style.perspective = 1000 + index + "px";
-				console.log(index);
 			})
 			function mousewheel(obj, fn) {
 				document.onmousewheel === null ? obj.onmousewheel = fn : addEvent(obj, "DOMMouseScroll", fn)
