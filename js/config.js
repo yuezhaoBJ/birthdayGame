@@ -1,4 +1,4 @@
-var config = (function(){
+var config = (function () {
 
 
     var row = 4;
@@ -8,8 +8,8 @@ var config = (function(){
 
     var time = 0;
 
-    var imgUrl = "./img/";
-    var imgExtension = ".jpg";
+    var imgUrl = "./img/test/";
+    var imgExtension = ".png";
     var imgByName = function (name) {
         var src = imgUrl + name + imgExtension;
         return `<img class="img-circle" draggable="false" src="${src}"></img>`;
@@ -22,14 +22,20 @@ var config = (function(){
                                     <div class="x right"></div>
                               </div>`;
 
+    var resetConfig = function () {
+        imgUrl = "./img/";
+        imgExtension = ".jpg";
+    }
+
     return {
-        row : row,
-        col : col,
-        objectCount : objectCount,
-        repeatCount: repeatCount, 
-        imgByName : imgByName,
+        row: row,
+        col: col,
+        objectCount: objectCount,
+        repeatCount: repeatCount,
+        imgByName: imgByName,
+        resetConfig: resetConfig,
         itemDirectionHTML: itemDirectionHTML,
-        time : time,
+        time: time,
     }
 
 })();

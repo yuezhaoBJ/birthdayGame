@@ -354,14 +354,14 @@ body {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 375px) {
     .heading {
         padding: 0 28px;
     }
 
     .grid-item-content img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 }
 
@@ -371,7 +371,7 @@ body {
     }
 
     .grid-item-content img {
-        width: 35px;
-        height: 35px;
+        width: 50px;
+        height: 50px;
     }
 }

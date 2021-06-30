@@ -112,7 +112,7 @@ a {
   color: white;
   font-size: 12px;
   transition: all 0.2s ease;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .grid-item-content img {
@@ -237,6 +237,9 @@ a {
 }
 
 .form__field:focus {
+  border-left: none;
+  border-right: none;
+  border-top: none;
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
@@ -302,14 +305,14 @@ body {
     width: 50%;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 375px) {
   .heading {
     padding: 0 28px;
   }
 
   .grid-item-content img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 }
 @media screen and (max-width: 325px) {

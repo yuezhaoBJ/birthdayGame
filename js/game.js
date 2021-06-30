@@ -15,6 +15,8 @@ var Game = (function (name) {
 
     var hlepData = [];
 
+    var isRestart = false;
+
     var Game = function (name) {
         data.name = name;
     };
@@ -38,7 +40,10 @@ var Game = (function (name) {
         },
 
         restart: function () {
-            location.reload();
+            isRestart = true;
+            itemCount = config.row * config.col;
+            this.start();
+            this.view.init(this, data, true);
         },
 
         help: function () {
@@ -313,18 +318,25 @@ var Game = (function (name) {
         },
 
         winning: function () {
-            setTimeout(function () {
-                window.cancelAnimationFrame(animationFrameId);
-                $('.hovertree').fireworks({
-                    sound: false, // sound effect
-                    opacity: 0.8,
-                    width: '100%',
-                    height: '100%'
-                });
-                $('.game-container').toggleClass('hide');
-                $('.winner').toggleClass('hide');
-                $('.winner .name').html(`恭喜${data.name}完成挑战`);
-                $('.winner .timeUsed').html(`用时 ${data.time} 秒`);
+            setTimeout(() => {
+                if (!isRestart) {
+                    alert("即将正式进入游戏，请擦亮眼睛！");      
+                    window.cancelAnimationFrame(animationFrameId);
+                    this.restart();
+                } else {
+
+                    window.cancelAnimationFrame(animationFrameId);
+                    $('.hovertree').fireworks({
+                        sound: false, // sound effect
+                        opacity: 0.8,
+                        width: '100%',
+                        height: '100%'
+                    });
+                    $('.game-container').toggleClass('hide');
+                    $('.winner').toggleClass('hide');
+                    $('.winner .name').html(`恭喜${data.name}完成挑战`);
+                    $('.winner .timeUsed').html(`用时 ${data.time} 秒`);
+                }
 
             }, 50);
         },

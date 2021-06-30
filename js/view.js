@@ -8,7 +8,11 @@ var View = (function () {
 
     View.prototype = {
 
-        init: function (g, data) {
+        init: function (g, data, restart) {
+            if (restart) {
+                config.resetConfig();
+                data.time=0;
+            }
             game = g;
             $('body').addClass('game');
             this.updateUser(data.name);
