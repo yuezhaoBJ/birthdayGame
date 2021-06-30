@@ -107,8 +107,6 @@
 			}
 			var sX,
 				sY,
-				lastTx = 0,
-				lastTy = 0,
 				nX,
 				nY,
 				desX = 0,
@@ -133,10 +131,8 @@
 					desY = nY - sY;
 					tX += desX * 0.01;
 					tY += desY * 0.01;
-					lastTx += tX;
-					lastTy += tY;
 
-					obox.style.transform = "rotateX(-10deg) rotateY(" + lastTx + "deg)";
+					obox.style.transform = "rotateX(-10deg) rotateY(" + tX + "deg)";
 
 					sX = nX;
 					sY = nY;
@@ -149,9 +145,7 @@
 						desY *= 0.95;
 						tX += desX * 0.01;
 						tY += desY * 0.01;
-						lastTx += tX;
-						lastTy += tY;
-						obox.style.transform = "rotateX(-10deg) rotateY(" + lastTx + "deg)";
+						obox.style.transform = "rotateX(-10deg) rotateY(" + tX + "deg)";
 						if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
 							clearInterval(obox.timer);
 						}
