@@ -129,11 +129,10 @@
 					// 当前点的坐标和前一点的坐标差值
 					desX = nX - sX;
 					desY = nY - sY;
-					tX += desX * 0.01;
-					tY += desY * 0.01;
+					tX += desX * 0.1;
+					tY += desY * 0.1;
 
-					obox.style.transform = "rotateX(-10deg) rotateY(" + tX + "deg)";
-
+					obox.style.transform = "rotateY(" + tX + "deg)";
 					sX = nX;
 					sY = nY;
 				}, { passive: false });
@@ -143,13 +142,13 @@
 					obox.timer = setInterval(function () {
 						desX *= 0.95;
 						desY *= 0.95;
-						tX += desX * 0.01;
-						tY += desY * 0.01;
-						obox.style.transform = "rotateX(-10deg) rotateY(" + tX + "deg)";
+						tX += desX * 0.1;
+						tY += desY * 0.1;
+						obox.style.transform = "rotateY(" + tX + "deg)";
 						if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
 							clearInterval(obox.timer);
 						}
-					}, 50);
+					}, 13);
 				}, { passive: false });
 
 				return false;
